@@ -11,7 +11,12 @@
 					<i class="fas fa-home"></i><span>Home</span>
 				</a>
 			</li>
-		
+			<li class="menu-header">Dashboard</li>
+			<li class="@if ($title == 'Stock') active @endif">
+				<a class="nav-link" href="{{ route('stocks.show') }}">
+					<i class="fas fa-home"></i><span>Stock</span>
+				</a>
+			</li>
 		</ul>
 	
 	</aside>

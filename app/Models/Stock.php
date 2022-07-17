@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bumbu extends Model
+class Stock extends Model
 {
-    protected $table = 'bumbu';
+    protected $table = 'stocks';
 
     protected $fillable=[
         'name',
-        'slug'
+        'stock_current',
+        'stock_in',
+        'stock_out',
     ];
 }

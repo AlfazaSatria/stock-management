@@ -25,6 +25,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/password', 'FileController@changePasswordView')->name('password.change.view');
-Route::post('/password/change', 'FileController@changePassword')->name('password.change');
+Route::get('/password', 'StockController@changePasswordView')->name('password.change.view');
+Route::post('/password/change', 'StockController@changePassword')->name('password.change');
 
+Route::prefix('stocks')->group(function (){
+    Route::name('stocks.')->group(function (){
+        Route::get('index', 'StockController@index')->name('show');
+        Route::get('show/add/Stock', 'StockController@showAddStock')->name('show.add.stock');
+        Route::post('add', 'StockController@addstock')->name('add');
+        Route::delete('delete/{id}', 'StockController@destroy')->name('destroy');
+    });
+});
