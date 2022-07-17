@@ -34,5 +34,8 @@ Route::prefix('stocks')->group(function (){
         Route::get('show/add/Stock', 'StockController@showAddStock')->name('show.add.stock');
         Route::post('add', 'StockController@addStock')->name('add');
         Route::delete('delete/{id}', 'StockController@destroy')->name('destroy');
+
+        Route::get('show/update/stock/{id}', 'StockController@showUpdateStock')->name('show.update.stock');
+        Route::post('update/stock/{id}', 'StockController@updateStock')->name('update.stock');
     });
 });

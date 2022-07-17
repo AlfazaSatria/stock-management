@@ -27,8 +27,8 @@ class StockController extends Controller
             ->addIndexColumn()
             
             ->addColumn('action', function ($stock) {
-                
-                $button = '<button id="delete" class="btn btn-sm btn-danger" data-id="'.$stock->id.'">Delete</button>';
+                $button = '<a href="' . route('stocks.show.update.stock', $stock->id) . '"><button class="btn btn-sm btn-success">Edit</button></a>';
+                $button .= '<button id="delete" class="btn btn-sm btn-danger" data-id="'.$stock->id.'">Delete</button>';
                 return $button;
             })
             ->rawColumns(['action'])
@@ -65,6 +65,42 @@ class StockController extends Controller
                 'status' => '500',
                 'error' => $err->getMessage()
             ], 500);
+        }
+    }
+
+    public function showUpdateStock($id)
+    {
+        $stock= Stock::firstwhere('id', $id);
+        return view('admin.stocks.updateStock')->with('title', 'Show Update Stock')->with('stock', $stock);
+    }
+
+    public function updateStock(Request $request, $id)
+    {
+
+        try {
+            $stock = Stock::findOrFail($id);
+
+           
+                $stock->stock_current = $stock['stock_current'] + $request['stock_in']- $request['stock_out'];
+           
+
+            $stock->stock_in = $request['stock_in'];
+            $stock->stock_out = $request['stock_out'];
+            $stock->save();
+
+            return response()->json([
+                'status' => '200',
+                'message' => 'stock Changed',
+                'data' => Stock::find($stock->id),
+            ], 200);
+            
+        } catch (Exception $err) {
+            return response()->json([
+                'status' => '400',
+                'message' => 'Change stock Failed',
+                'error' => $err->getMessage(),
+
+            ], 400);
         }
     }
 
