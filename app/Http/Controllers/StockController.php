@@ -46,11 +46,11 @@ class StockController extends Controller
     public function addStock(Request $request)
     {
         try{
-            $stock = new Stock;
-            $stock->name = $request->name;
-            $stock->stock_current = $request->stock_current;
-            $stock->stock_in = $request->stock_in;
-            $stock->stock_out = $request->stock_out;
+            $stock = new Stock();
+            $stock->name = $request['name'];
+            $stock->stock_current = $request['stock_current'];
+            $stock->stock_in = $request['stock_in'];
+            $stock->stock_out = $request['stock_out'];
             $stock->save();
                 
             
