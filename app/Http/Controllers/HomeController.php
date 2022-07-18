@@ -3,15 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Marketplace\Payment;
-use App\Models\Marketplace\Product;
-use App\Models\Marketplace\OrderSummary;
-use App\Models\Marketplace\Order;
-use App\Models\Marketplace\Month;
+
 use Illuminate\Support\Facades\DB;
-use App\Models\Marketplace\Seller;
-use Carbon\Carbon;
-use Carbon\CarbonPeriod;
+
+use App\Models\Stock;
+
 
 
 class HomeController extends Controller
@@ -33,7 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('title', 'Home Dashboard');
+        $product=DB::table('stocks')->count();
+        $current_stock=DB::table('stocks')->sum('stock_current');
+        $stock_in=DB::table('stocks')->sum('stock_in');
+        $stock_out=DB::table('stocks')->sum('stock_out');
+        return view('home')->with('title', 'Home Dashboard')->with('product', $product)->with('current_stock', $current_stock)->with('stock_in', $stock_in)->with('stock_out', $stock_out);
     }
 
    

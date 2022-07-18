@@ -10,8 +10,8 @@
     <form id="change-password">
       
       <div class="form-group">
-        <label for="desc">Password Baru</label>
-        <input type="text" class="form-control" id="password" name="password" placeholder="Password Baru">
+        <label for="desc">New Password</label>
+        <input type="text" class="form-control" id="password" name="password" placeholder="New Password">
       </div>
 
       

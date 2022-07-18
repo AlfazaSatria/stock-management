@@ -7,6 +7,7 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ mix('js/app-plugin.js') }}" type="text/javascript"></script>
 <script src="{{ asset('dist/assets/js/stisla.js') }}" ></script>
 

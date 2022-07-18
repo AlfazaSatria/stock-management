@@ -46,7 +46,7 @@
             {data: 'stock_current', name: 'stock_current', title: 'Current Stock'},
             {data: 'stock_in', name: 'stock_in', title: 'Stock In'},
             {data: 'stock_out', name: 'stock_out', title: 'Stock Out'},
-            {data: 'action', name: 'action', title: 'Aksi'},
+            {data: 'action', name: 'action', title: 'Action'},
         ],
         });
     });
@@ -70,7 +70,7 @@
                     },
                     success: function (response)
                     {
-                        swal("Success", "Your Data is alreadt deleted!", "success");
+                        swal("Success", "Your Data is already deleted!", "success");
                         oTable.ajax.reload(null,false);
                     },
                     error: function(xhr) {
